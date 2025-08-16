@@ -367,12 +367,74 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .event-dot:hover {
+            transform: scale(1.5);
+            z-index: 10;
         }
 
         .event-school { background: #3b82f6; }
         .event-assignment { background: #ef4444; }
         .event-activity { background: #22c55e; }
         .event-family { background: #f59e0b; }
+
+        /* Tooltip styles */
+        .event-tooltip {
+            position: absolute;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            min-width: 250px;
+            font-size: 0.9rem;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .event-tooltip.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-tooltip h4 {
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .event-tooltip p {
+            color: #64748b;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .event-tooltip .time {
+            color: #374151;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .event-tooltip .category {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .category-school { background: #dbeafe; color: #1d4ed8; }
+        .category-assignment { background: #fee2e2; color: #dc2626; }
+        .category-activity { background: #dcfce7; color: #16a34a; }
+        .category-family { background: #fef3c7; color: #d97706; }
 
         /* Stats Section */
         .stats {
@@ -621,7 +683,7 @@
                 </div>
                 <div class="calendar-preview">
                     <div class="calendar-header">
-                        <h4 style="color: #1e293b;">March 2024</h4>
+                        <h4 style="color: #1e293b;">August 2025</h4>
                         <div style="display: flex; gap: 0.5rem;">
                             <button style="background: #f1f5f9; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer;">‹</button>
                             <button style="background: #f1f5f9; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer;">›</button>
@@ -636,38 +698,72 @@
                         <div style="text-align: center; font-weight: bold; color: #64748b; padding: 0.5rem;">F</div>
                         <div style="text-align: center; font-weight: bold; color: #64748b; padding: 0.5rem;">S</div>
                         
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
                         <div class="calendar-day">1</div>
                         <div class="calendar-day">2</div>
-                        <div class="calendar-day">3<div class="event-dot event-school"></div></div>
-                        <div class="calendar-day">4</div>
-                        <div class="calendar-day">5<div class="event-dot event-assignment"></div></div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4
+                            <div class="event-dot event-school" data-event='{"name": "Back to School Night", "description": "Meet Emma'\''s 3rd grade teacher and learn about this year'\''s curriculum", "start": "7:00 PM", "end": "8:30 PM", "category": "school"}'></div>
+                        </div>
+                        <div class="calendar-day">5
+                            <div class="event-dot event-assignment" data-event='{"name": "Math Homework Due", "description": "Chapter 3 multiplication worksheets for Alex", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                        </div>
                         <div class="calendar-day">6</div>
-                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">7
+                            <div class="event-dot event-activity" data-event='{"name": "Soccer Practice", "description": "Emma'\''s team practice at Memorial Park", "start": "4:00 PM", "end": "5:30 PM", "category": "activity"}'></div>
+                        </div>
                         <div class="calendar-day">8</div>
-                        <div class="calendar-day">9<div class="event-dot event-activity"></div></div>
+                        <div class="calendar-day">9
+                            <div class="event-dot event-family" data-event='{"name": "Family Movie Night", "description": "Pizza and movie night with the kids", "start": "6:00 PM", "end": "9:00 PM", "category": "family"}'></div>
+                        </div>
                         <div class="calendar-day">10</div>
                         <div class="calendar-day">11</div>
-                        <div class="calendar-day">12<div class="event-dot event-assignment"></div></div>
+                        <div class="calendar-day">12
+                            <div class="event-dot event-assignment" data-event='{"name": "Science Project Due", "description": "Alex'\''s volcano project presentation", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                        </div>
                         <div class="calendar-day">13</div>
-                        <div class="calendar-day">14</div>
-                        <div class="calendar-day">15<div class="event-dot event-family"></div></div>
+                        <div class="calendar-day">14
+                            <div class="event-dot event-activity" data-event='{"name": "Piano Lesson", "description": "Emma'\''s weekly piano lesson with Mrs. Johnson", "start": "3:30 PM", "end": "4:30 PM", "category": "activity"}'></div>
+                        </div>
+                        <div class="calendar-day">15
+                            <div class="event-dot event-school" data-event='{"name": "Parent-Teacher Conference", "description": "Meeting with Alex'\''s 5th grade teacher", "start": "2:00 PM", "end": "2:30 PM", "category": "school"}'></div>
+                        </div>
                         <div class="calendar-day">16</div>
-                        <div class="calendar-day">17<div class="event-dot event-school"></div></div>
-                        <div class="calendar-day">18</div>
-                        <div class="calendar-day">19<div class="event-dot event-assignment"></div></div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18
+                            <div class="event-dot event-family" data-event='{"name": "Grandparents Visit", "description": "Weekend visit from Mom and Dad", "start": "10:00 AM", "end": "6:00 PM", "category": "family"}'></div>
+                        </div>
+                        <div class="calendar-day">19
+                            <div class="event-dot event-assignment" data-event='{"name": "Book Report Due", "description": "Emma'\''s report on Charlotte'\''s Web", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                        </div>
                         <div class="calendar-day">20</div>
-                        <div class="calendar-day">21</div>
-                        <div class="calendar-day">22<div class="event-dot event-activity"></div></div>
+                        <div class="calendar-day">21
+                            <div class="event-dot event-activity" data-event='{"name": "Soccer Game", "description": "Emma'\''s team vs. Riverside Elementary", "start": "9:00 AM", "end": "10:30 AM", "category": "activity"}'></div>
+                        </div>
+                        <div class="calendar-day">22</div>
                         <div class="calendar-day">23</div>
                         <div class="calendar-day">24</div>
-                        <div class="calendar-day">25</div>
-                        <div class="calendar-day">26<div class="event-dot event-school"></div></div>
+                        <div class="calendar-day">25
+                            <div class="event-dot event-school" data-event='{"name": "Field Trip", "description": "Alex'\''s class trip to the Science Museum", "start": "8:30 AM", "end": "3:00 PM", "category": "school"}'></div>
+                        </div>
+                        <div class="calendar-day">26
+                            <div class="event-dot event-assignment" data-event='{"name": "Spelling Test", "description": "Emma'\''s weekly spelling test - Unit 2", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                        </div>
                         <div class="calendar-day">27</div>
-                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">28
+                            <div class="event-dot event-activity" data-event='{"name": "Art Class", "description": "Emma'\''s after-school art program", "start": "4:00 PM", "end": "5:00 PM", "category": "activity"}'></div>
+                        </div>
                         <div class="calendar-day">29</div>
-                        <div class="calendar-day">30<div class="event-dot event-family"></div></div>
+                        <div class="calendar-day">30
+                            <div class="event-dot event-family" data-event='{"name": "Birthday Party", "description": "Alex'\''s friend Jake'\''s birthday party", "start": "2:00 PM", "end": "5:00 PM", "category": "family"}'></div>
+                        </div>
                         <div class="calendar-day">31</div>
                     </div>
+                    <div id="event-tooltip" class="event-tooltip"></div>
                 </div>
             </div>
         </div>
@@ -787,24 +883,234 @@
             });
         });
 
-        // Add calendar interactivity
-        document.querySelectorAll('.calendar-day').forEach(day => {
-            day.addEventListener('click', function() {
-                const eventDot = this.querySelector('.event-dot');
-                if (eventDot) {
-                    const eventTypes = {
-                        'event-school': 'School Event',
-                        'event-assignment': 'Assignment Due',
-                        'event-activity': 'Extracurricular Activity',
-                        'event-family': 'Family Time'
-                    };
-                    
-                    let eventType = 'Event';
-                    for (let className in eventTypes) {
-                        if (eventDot.classList.contains(className)) {
-                            eventType = eventTypes[className];
-                            break;
-                        }
-                    }
-                    
-                    alert(`${eventType}
+        // Add calendar interactivity with tooltips
+        let currentTooltip = null;
+
+        document.querySelectorAll('.event-dot').forEach(dot => {
+            dot.addEventListener('mouseenter', function(e) {
+                const eventData = JSON.parse(this.dataset.event);
+                const tooltip = document.getElementById('event-tooltip');
+                
+                // Create tooltip content
+                let timeDisplay = '';
+                if (eventData.end) {
+                    timeDisplay = `${eventData.start} - ${eventData.end}`;
+                } else {
+                    timeDisplay = eventData.start;
+                }
+
+                tooltip.innerHTML = `
+                    <h4>${eventData.name}</h4>
+                    <p>${eventData.description}</p>
+                    <div class="time">🕒 ${timeDisplay}</div>
+                    <div class="category category-${eventData.category}">${eventData.category.charAt(0).toUpperCase() + eventData.category.slice(1)}</div>
+                `;
+                
+                // Position tooltip
+                const rect = this.getBoundingClientRect();
+                const tooltipRect = tooltip.getBoundingClientRect();
+                const calendarRect = document.querySelector('.calendar-preview').getBoundingClientRect();
+                
+                let left = rect.left - calendarRect.left + rect.width / 2 - 125;
+                let top = rect.top - calendarRect.top - 10;
+                
+                // Adjust if tooltip would go outside calendar bounds
+                if (left < 10) left = 10;
+                if (left + 250 > calendarRect.width - 10) left = calendarRect.width - 260;
+                if (top < 10) top = rect.bottom - calendarRect.top + 10;
+                
+                tooltip.style.left = left + 'px';
+                tooltip.style.top = top + 'px';
+                tooltip.classList.add('show');
+                currentTooltip = tooltip;
+            });
+
+            dot.addEventListener('mouseleave', function() {
+                if (currentTooltip) {
+                    currentTooltip.classList.remove('show');
+                    currentTooltip = null;
+                }
+            });
+
+            // Keep the click functionality
+            dot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const eventData = JSON.parse(this.dataset.event);
+                alert(`${eventData.name}\n\n${eventData.description}\n\nTime: ${eventData.start}${eventData.end ? ' - ' + eventData.end : ''}\n\nClick to edit or view more details.`);
+            });
+        });
+
+        // Add feature card animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initially hide feature cards for animation
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Add stats counter animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-item h4');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+                        const suffix = finalValue.replace(/[0-9]/g, '');
+                        
+                        let currentValue = 0;
+                        const increment = numericValue / 50;
+                        const timer = setInterval(() => {
+                            currentValue += increment;
+                            if (currentValue >= numericValue) {
+                                stat.textContent = finalValue;
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(currentValue) + suffix;
+                            }
+                        }, 30);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(document.querySelector('.stats'));
+
+        // Add demo interaction
+        const calendarHeader = document.querySelector('.calendar-header');
+        const prevButton = calendarHeader.querySelector('button:first-of-type');
+        const nextButton = calendarHeader.querySelector('button:last-of-type');
+        const monthTitle = calendarHeader.querySelector('h4');
+
+        const months = [
+            'June 2025', 'July 2025', 'August 2025', 
+            'September 2025', 'October 2025', 'November 2025'
+        ];
+        let currentMonth = 2; // August
+
+        prevButton.addEventListener('click', () => {
+            if (currentMonth > 0) {
+                currentMonth--;
+                monthTitle.textContent = months[currentMonth];
+                updateCalendarDots();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentMonth < months.length - 1) {
+                currentMonth++;
+                monthTitle.textContent = months[currentMonth];
+                updateCalendarDots();
+            }
+        });
+
+        function updateCalendarDots() {
+            // Remove existing dots
+            document.querySelectorAll('.event-dot').forEach(dot => dot.remove());
+            
+            // Add random dots for demo
+            const days = document.querySelectorAll('.calendar-day');
+            const eventTypes = ['event-school', 'event-assignment', 'event-activity', 'event-family'];
+            
+            // Add some random events
+            const eventDays = [3, 5, 9, 12, 15, 17, 19, 22, 26, 30];
+            eventDays.forEach((dayNum, index) => {
+                const dayElement = Array.from(days).find(day => 
+                    parseInt(day.textContent) === dayNum
+                );
+                if (dayElement) {
+                    const dot = document.createElement('div');
+                    dot.className = `event-dot ${eventTypes[index % eventTypes.length]}`;
+                    dayElement.appendChild(dot);
+                }
+            });
+        }
+
+        // Add newsletter signup functionality
+        function addNewsletterSignup() {
+            const newsletterHTML = `
+                <div style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 3rem 0; margin: 2rem 0; border-radius: 20px;">
+                    <div class="container" style="text-align: center;">
+                        <h3 style="color: #1e293b; margin-bottom: 1rem;">Stay Updated</h3>
+                        <p style="color: #64748b; margin-bottom: 2rem;">Get the latest tips for family organization and product updates</p>
+                        <div style="max-width: 400px; margin: 0 auto; display: flex; gap: 1rem;">
+                            <input type="email" placeholder="Enter your email" 
+                                   style="flex: 1; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
+                            <button onclick="subscribeNewsletter()" 
+                                    style="background: linear-gradient(135deg, #a855f7, #c084fc); color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const finalCta = document.querySelector('.final-cta');
+            finalCta.insertAdjacentHTML('beforebegin', newsletterHTML);
+        }
+
+        window.subscribeNewsletter = function() {
+            const email = document.querySelector('input[type="email"]').value;
+            if (email && email.includes('@')) {
+                alert('Thank you for subscribing! Welcome to the Wizly community.');
+                document.querySelector('input[type="email"]').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        };
+
+        // Initialize newsletter signup
+        addNewsletterSignup();
+
+        // Add mobile menu functionality
+        function addMobileMenu() {
+            const nav = document.querySelector('nav');
+            const mobileMenuButton = document.createElement('button');
+            mobileMenuButton.innerHTML = '☰';
+            mobileMenuButton.style.cssText = `
+                display: none;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #764ba2;
+                cursor: pointer;
+                @media (max-width: 768px) { display: block; }
+            `;
+            
+            nav.appendChild(mobileMenuButton);
+            
+            mobileMenuButton.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            });
+        }
+
+        addMobileMenu();
+
+        console.log('Wizly Family Calendar Management System Loaded Successfully! 🦉✨');
+    </script>
+</body>
+</html>
