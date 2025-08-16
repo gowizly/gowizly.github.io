@@ -373,7 +373,7 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
-        .event-dot:hover, .event-dot.auto-hover {
+        .event-dot:hover {
             transform: scale(1.4);
             z-index: 10;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -934,20 +934,10 @@
             });
         });
 
-        // Add calendar interactivity with tooltips and automation
+        // Add calendar interactivity with tooltips
         let currentTooltip = null;
-        let autoHoverInterval = null;
-        let currentAutoIndex = 0;
-        let allEventDots = [];
 
-        function showTooltip(dot, isAuto = false) {
-            // Remove any existing auto-hover class
-            document.querySelectorAll('.event-dot.auto-hover').forEach(d => d.classList.remove('auto-hover'));
-            
-            if (isAuto) {
-                dot.classList.add('auto-hover');
-            }
-
+        function showTooltip(dot) {
             const eventData = JSON.parse(dot.dataset.event);
             const tooltip = document.getElementById('event-tooltip');
             
@@ -990,80 +980,24 @@
                 currentTooltip.classList.remove('show');
                 currentTooltip = null;
             }
-            // Remove any existing auto-hover class
-            document.querySelectorAll('.event-dot.auto-hover').forEach(d => d.classList.remove('auto-hover'));
-        }
-
-        function startAutoHover() {
-            allEventDots = Array.from(document.querySelectorAll('.event-dot'));
-            if (allEventDots.length === 0) return;
-
-            autoHoverInterval = setInterval(() => {
-                // Hide current tooltip
-                hideTooltip();
-                
-                // Wait a bit then show next tooltip
-                setTimeout(() => {
-                    if (currentAutoIndex >= allEventDots.length) {
-                        currentAutoIndex = 0;
-                    }
-                    showTooltip(allEventDots[currentAutoIndex], true);
-                    currentAutoIndex++;
-                }, 200);
-            }, 2500); // Show each tooltip for 2.5 seconds
-        }
-
-        function stopAutoHover() {
-            if (autoHoverInterval) {
-                clearInterval(autoHoverInterval);
-                autoHoverInterval = null;
-            }
-            hideTooltip();
-            currentAutoIndex = 0;
         }
 
         document.querySelectorAll('.event-dot').forEach(dot => {
             dot.addEventListener('mouseenter', function(e) {
-                stopAutoHover(); // Stop automation when user interacts
-                showTooltip(this, false);
+                showTooltip(this);
             });
 
             dot.addEventListener('mouseleave', function() {
                 hideTooltip();
-                // Restart automation after a brief delay
-                setTimeout(() => {
-                    if (!currentTooltip) { // Only restart if no tooltip is currently shown
-                        startAutoHover();
-                    }
-                }, 1000);
             });
 
             // Keep the click functionality
             dot.addEventListener('click', function(e) {
                 e.stopPropagation();
-                stopAutoHover();
                 const eventData = JSON.parse(this.dataset.event);
                 alert(`${eventData.name}\n\n${eventData.description}\n\nTime: ${eventData.start}${eventData.end ? ' - ' + eventData.end : ''}\n\nClick to edit or view more details.`);
-                // Restart automation after alert
-                setTimeout(startAutoHover, 1000);
             });
         });
-
-        // Start the automation when calendar loads
-        setTimeout(startAutoHover, 2000); // Wait 2 seconds after page load
-
-        // Pause automation when calendar is not visible
-        const calendarObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(startAutoHover, 1000);
-                } else {
-                    stopAutoHover();
-                }
-            });
-        }, { threshold: 0.3 });
-
-        calendarObserver.observe(document.querySelector('.calendar-demo'));
 
         // Add feature card animations on scroll
         const observerOptions = {
