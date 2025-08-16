@@ -362,24 +362,55 @@
 
         .event-dot {
             position: absolute;
-            bottom: 4px;
-            right: 4px;
-            width: 6px;
-            height: 6px;
+            bottom: 6px;
+            right: 6px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
-        .event-dot:hover {
-            transform: scale(1.5);
+        .event-dot:hover, .event-dot.auto-hover {
+            transform: scale(1.4);
             z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .event-school { background: #3b82f6; }
         .event-assignment { background: #ef4444; }
         .event-activity { background: #22c55e; }
         .event-family { background: #f59e0b; }
+
+        /* Calendar Legend */
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
 
         /* Tooltip styles */
         .event-tooltip {
@@ -707,14 +738,14 @@
                         <div class="calendar-day">2</div>
                         <div class="calendar-day">3</div>
                         <div class="calendar-day">4
-                            <div class="event-dot event-school" data-event='{"name": "Back to School Night", "description": "Meet Emma'\''s 3rd grade teacher and learn about this year'\''s curriculum", "start": "7:00 PM", "end": "8:30 PM", "category": "school"}'></div>
+                            <div class="event-dot event-school" data-event='{"name": "Back to School Night", "description": "Meet Emma&apos;s 3rd grade teacher and learn about this year&apos;s curriculum", "start": "7:00 PM", "end": "8:30 PM", "category": "school"}'></div>
                         </div>
                         <div class="calendar-day">5
                             <div class="event-dot event-assignment" data-event='{"name": "Math Homework Due", "description": "Chapter 3 multiplication worksheets for Alex", "start": "All Day", "end": "", "category": "assignment"}'></div>
                         </div>
                         <div class="calendar-day">6</div>
                         <div class="calendar-day">7
-                            <div class="event-dot event-activity" data-event='{"name": "Soccer Practice", "description": "Emma'\''s team practice at Memorial Park", "start": "4:00 PM", "end": "5:30 PM", "category": "activity"}'></div>
+                            <div class="event-dot event-activity" data-event='{"name": "Soccer Practice", "description": "Emma&apos;s team practice at Memorial Park", "start": "4:00 PM", "end": "5:30 PM", "category": "activity"}'></div>
                         </div>
                         <div class="calendar-day">8</div>
                         <div class="calendar-day">9
@@ -723,14 +754,14 @@
                         <div class="calendar-day">10</div>
                         <div class="calendar-day">11</div>
                         <div class="calendar-day">12
-                            <div class="event-dot event-assignment" data-event='{"name": "Science Project Due", "description": "Alex'\''s volcano project presentation", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                            <div class="event-dot event-assignment" data-event='{"name": "Science Project Due", "description": "Alex&apos;s volcano project presentation", "start": "All Day", "end": "", "category": "assignment"}'></div>
                         </div>
                         <div class="calendar-day">13</div>
                         <div class="calendar-day">14
-                            <div class="event-dot event-activity" data-event='{"name": "Piano Lesson", "description": "Emma'\''s weekly piano lesson with Mrs. Johnson", "start": "3:30 PM", "end": "4:30 PM", "category": "activity"}'></div>
+                            <div class="event-dot event-activity" data-event='{"name": "Piano Lesson", "description": "Emma&apos;s weekly piano lesson with Mrs. Johnson", "start": "3:30 PM", "end": "4:30 PM", "category": "activity"}'></div>
                         </div>
                         <div class="calendar-day">15
-                            <div class="event-dot event-school" data-event='{"name": "Parent-Teacher Conference", "description": "Meeting with Alex'\''s 5th grade teacher", "start": "2:00 PM", "end": "2:30 PM", "category": "school"}'></div>
+                            <div class="event-dot event-school" data-event='{"name": "Parent-Teacher Conference", "description": "Meeting with Alex&apos;s 5th grade teacher", "start": "2:00 PM", "end": "2:30 PM", "category": "school"}'></div>
                         </div>
                         <div class="calendar-day">16</div>
                         <div class="calendar-day">17</div>
@@ -738,32 +769,52 @@
                             <div class="event-dot event-family" data-event='{"name": "Grandparents Visit", "description": "Weekend visit from Mom and Dad", "start": "10:00 AM", "end": "6:00 PM", "category": "family"}'></div>
                         </div>
                         <div class="calendar-day">19
-                            <div class="event-dot event-assignment" data-event='{"name": "Book Report Due", "description": "Emma'\''s report on Charlotte'\''s Web", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                            <div class="event-dot event-assignment" data-event='{"name": "Book Report Due", "description": "Emma&apos;s report on Charlotte&apos;s Web", "start": "All Day", "end": "", "category": "assignment"}'></div>
                         </div>
                         <div class="calendar-day">20</div>
                         <div class="calendar-day">21
-                            <div class="event-dot event-activity" data-event='{"name": "Soccer Game", "description": "Emma'\''s team vs. Riverside Elementary", "start": "9:00 AM", "end": "10:30 AM", "category": "activity"}'></div>
+                            <div class="event-dot event-activity" data-event='{"name": "Soccer Game", "description": "Emma&apos;s team vs. Riverside Elementary", "start": "9:00 AM", "end": "10:30 AM", "category": "activity"}'></div>
                         </div>
                         <div class="calendar-day">22</div>
                         <div class="calendar-day">23</div>
                         <div class="calendar-day">24</div>
                         <div class="calendar-day">25
-                            <div class="event-dot event-school" data-event='{"name": "Field Trip", "description": "Alex'\''s class trip to the Science Museum", "start": "8:30 AM", "end": "3:00 PM", "category": "school"}'></div>
+                            <div class="event-dot event-school" data-event='{"name": "Field Trip", "description": "Alex&apos;s class trip to the Science Museum", "start": "8:30 AM", "end": "3:00 PM", "category": "school"}'></div>
                         </div>
                         <div class="calendar-day">26
-                            <div class="event-dot event-assignment" data-event='{"name": "Spelling Test", "description": "Emma'\''s weekly spelling test - Unit 2", "start": "All Day", "end": "", "category": "assignment"}'></div>
+                            <div class="event-dot event-assignment" data-event='{"name": "Spelling Test", "description": "Emma&apos;s weekly spelling test - Unit 2", "start": "All Day", "end": "", "category": "assignment"}'></div>
                         </div>
                         <div class="calendar-day">27</div>
                         <div class="calendar-day">28
-                            <div class="event-dot event-activity" data-event='{"name": "Art Class", "description": "Emma'\''s after-school art program", "start": "4:00 PM", "end": "5:00 PM", "category": "activity"}'></div>
+                            <div class="event-dot event-activity" data-event='{"name": "Art Class", "description": "Emma&apos;s after-school art program", "start": "4:00 PM", "end": "5:00 PM", "category": "activity"}'></div>
                         </div>
                         <div class="calendar-day">29</div>
                         <div class="calendar-day">30
-                            <div class="event-dot event-family" data-event='{"name": "Birthday Party", "description": "Alex'\''s friend Jake'\''s birthday party", "start": "2:00 PM", "end": "5:00 PM", "category": "family"}'></div>
+                            <div class="event-dot event-family" data-event='{"name": "Birthday Party", "description": "Alex&apos;s friend Jake&apos;s birthday party", "start": "2:00 PM", "end": "5:00 PM", "category": "family"}'></div>
                         </div>
                         <div class="calendar-day">31</div>
                     </div>
                     <div id="event-tooltip" class="event-tooltip"></div>
+                    
+                    <!-- Calendar Legend -->
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot event-school"></div>
+                            <span>School Events</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot event-assignment"></div>
+                            <span>Assignments</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot event-activity"></div>
+                            <span>Activities</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot event-family"></div>
+                            <span>Family Time</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -883,62 +934,136 @@
             });
         });
 
-        // Add calendar interactivity with tooltips
+        // Add calendar interactivity with tooltips and automation
         let currentTooltip = null;
+        let autoHoverInterval = null;
+        let currentAutoIndex = 0;
+        let allEventDots = [];
+
+        function showTooltip(dot, isAuto = false) {
+            // Remove any existing auto-hover class
+            document.querySelectorAll('.event-dot.auto-hover').forEach(d => d.classList.remove('auto-hover'));
+            
+            if (isAuto) {
+                dot.classList.add('auto-hover');
+            }
+
+            const eventData = JSON.parse(dot.dataset.event);
+            const tooltip = document.getElementById('event-tooltip');
+            
+            // Create tooltip content
+            let timeDisplay = '';
+            if (eventData.end) {
+                timeDisplay = `${eventData.start} - ${eventData.end}`;
+            } else {
+                timeDisplay = eventData.start;
+            }
+
+            tooltip.innerHTML = `
+                <h4>${eventData.name}</h4>
+                <p>${eventData.description}</p>
+                <div class="time">🕒 ${timeDisplay}</div>
+                <div class="category category-${eventData.category}">${eventData.category.charAt(0).toUpperCase() + eventData.category.slice(1)}</div>
+            `;
+            
+            // Position tooltip
+            const rect = dot.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const calendarRect = document.querySelector('.calendar-preview').getBoundingClientRect();
+            
+            let left = rect.left - calendarRect.left + rect.width / 2 - 125;
+            let top = rect.top - calendarRect.top - 10;
+            
+            // Adjust if tooltip would go outside calendar bounds
+            if (left < 10) left = 10;
+            if (left + 250 > calendarRect.width - 10) left = calendarRect.width - 260;
+            if (top < 10) top = rect.bottom - calendarRect.top + 10;
+            
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+            tooltip.classList.add('show');
+            currentTooltip = tooltip;
+        }
+
+        function hideTooltip() {
+            if (currentTooltip) {
+                currentTooltip.classList.remove('show');
+                currentTooltip = null;
+            }
+            // Remove any existing auto-hover class
+            document.querySelectorAll('.event-dot.auto-hover').forEach(d => d.classList.remove('auto-hover'));
+        }
+
+        function startAutoHover() {
+            allEventDots = Array.from(document.querySelectorAll('.event-dot'));
+            if (allEventDots.length === 0) return;
+
+            autoHoverInterval = setInterval(() => {
+                // Hide current tooltip
+                hideTooltip();
+                
+                // Wait a bit then show next tooltip
+                setTimeout(() => {
+                    if (currentAutoIndex >= allEventDots.length) {
+                        currentAutoIndex = 0;
+                    }
+                    showTooltip(allEventDots[currentAutoIndex], true);
+                    currentAutoIndex++;
+                }, 200);
+            }, 2500); // Show each tooltip for 2.5 seconds
+        }
+
+        function stopAutoHover() {
+            if (autoHoverInterval) {
+                clearInterval(autoHoverInterval);
+                autoHoverInterval = null;
+            }
+            hideTooltip();
+            currentAutoIndex = 0;
+        }
 
         document.querySelectorAll('.event-dot').forEach(dot => {
             dot.addEventListener('mouseenter', function(e) {
-                const eventData = JSON.parse(this.dataset.event);
-                const tooltip = document.getElementById('event-tooltip');
-                
-                // Create tooltip content
-                let timeDisplay = '';
-                if (eventData.end) {
-                    timeDisplay = `${eventData.start} - ${eventData.end}`;
-                } else {
-                    timeDisplay = eventData.start;
-                }
-
-                tooltip.innerHTML = `
-                    <h4>${eventData.name}</h4>
-                    <p>${eventData.description}</p>
-                    <div class="time">🕒 ${timeDisplay}</div>
-                    <div class="category category-${eventData.category}">${eventData.category.charAt(0).toUpperCase() + eventData.category.slice(1)}</div>
-                `;
-                
-                // Position tooltip
-                const rect = this.getBoundingClientRect();
-                const tooltipRect = tooltip.getBoundingClientRect();
-                const calendarRect = document.querySelector('.calendar-preview').getBoundingClientRect();
-                
-                let left = rect.left - calendarRect.left + rect.width / 2 - 125;
-                let top = rect.top - calendarRect.top - 10;
-                
-                // Adjust if tooltip would go outside calendar bounds
-                if (left < 10) left = 10;
-                if (left + 250 > calendarRect.width - 10) left = calendarRect.width - 260;
-                if (top < 10) top = rect.bottom - calendarRect.top + 10;
-                
-                tooltip.style.left = left + 'px';
-                tooltip.style.top = top + 'px';
-                tooltip.classList.add('show');
-                currentTooltip = tooltip;
+                stopAutoHover(); // Stop automation when user interacts
+                showTooltip(this, false);
             });
 
             dot.addEventListener('mouseleave', function() {
-                if (currentTooltip) {
-                    currentTooltip.classList.remove('show');
-                    currentTooltip = null;
-                }
+                hideTooltip();
+                // Restart automation after a brief delay
+                setTimeout(() => {
+                    if (!currentTooltip) { // Only restart if no tooltip is currently shown
+                        startAutoHover();
+                    }
+                }, 1000);
             });
 
             // Keep the click functionality
             dot.addEventListener('click', function(e) {
                 e.stopPropagation();
+                stopAutoHover();
                 const eventData = JSON.parse(this.dataset.event);
                 alert(`${eventData.name}\n\n${eventData.description}\n\nTime: ${eventData.start}${eventData.end ? ' - ' + eventData.end : ''}\n\nClick to edit or view more details.`);
+                // Restart automation after alert
+                setTimeout(startAutoHover, 1000);
             });
         });
+
+        // Start the automation when calendar loads
+        setTimeout(startAutoHover, 2000); // Wait 2 seconds after page load
+
+        // Pause automation when calendar is not visible
+        const calendarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(startAutoHover, 1000);
+                } else {
+                    stopAutoHover();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        calendarObserver.observe(document.querySelector('.calendar-demo'));
 
         // Add feature card animations on scroll
         const observerOptions = {
