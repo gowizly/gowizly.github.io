@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Wizly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+          .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 80px 0;
+        }
+
+        .terms-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .terms-content h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, #764ba2, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .terms-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content h3 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .terms-content p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-content ul, .terms-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .last-updated {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .last-updated p {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .important-notice {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .important-notice h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .important-notice p {
+            color: #92400e;
+            margin-bottom: 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #c084fc;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            color: #94a3b8;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .terms-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!--<a href="#" class="logo">
+                <div class="logo-img">🦉</div>
+                Wizly
+            </a>-->
+            <a href="#" class="logo">
+                <img src="logo.jfif" alt="Logo" class="logo-img">
+                <span>Wizly</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#" style="color: #a855f7;">Terms of Service</a></li>
+            </ul>
+            <a href="#" class="cta-button">Get Started Free</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>The legal terms and conditions governing your use of Wizly's family calendar management platform.</p>
+        </div>
+    </section>
+
+    <main class="content">
+        <div class="container">
+            <div class="last-updated">
+                <p>Last Updated: August 18, 2025</p>
+            </div>
+
+            <div class="important-notice">
+                <h3>Important Notice</h3>
+                <p>These terms contain important information about your rights and obligations. Please read them carefully before using Wizly.</p>
+            </div>
+
+            <div class="terms-content">
+                <h2>Agreement to Terms</h2>
+                <p>By accessing or using Wizly's family calendar management platform, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of these terms, you may not access or use our service.</p>
+                <p>These terms apply to all visitors, users, and others who access or use our service, including parents, guardians, and authorized family members.</p>
+
+                <h2>Description of Service</h2>
+                <p>Wizly provides a family calendar management platform that helps parents organize their children's schedules, assignments, and events. Our service includes:</p>
+                <ul>
+                    <li>AI-powered event extraction from emails and photos using Google Gemini APIs</li>
+                    <li>Integration with Google Classroom for automatic assignment tracking</li>
+                    <li>Color-coded calendar organization by event type</li>
+                    <li>External calendar synchronization capabilities</li>
+                    <li>Multi-child schedule management tools</li>
+                    <li>Smart notifications and reminders</li>
+                </ul>
+
+                <h2>User Accounts and Registration</h2>
+
+                <h3>Account Creation</h3>
+                <p>To use Wizly, you must create an account by providing accurate and complete information. You are responsible for:</p>
+                <ul>
+                    <li>Maintaining the confidentiality of your account credentials</li>
+                    <li>All activities that occur under your account</li>
+                    <li>Notifying us immediately of any unauthorized use</li>
+                    <li>Ensuring all account information remains current and accurate</li>
+                </ul>
+
+                <h3>Age Requirements</h3>
+                <p>Wizly is intended for use by parents and guardians who are at least 18 years old. By creating an account, you represent that you are of legal age to form a binding contract.</p>
+
+                <h2>Acceptable Use Policy</h2>
+                <p>You agree to use Wizly only for lawful purposes and in accordance with these terms. You may not:</p>
+                <ul>
+                    <li>Use the service for any unlawful purpose or in violation of any laws</li>
+                    <li>Impersonate any person or entity or falsely state your affiliation</li>
+                    <li>Interfere with or disrupt the service or servers connected to the service</li>
+                    <li>Attempt to gain unauthorized access to any portion of the service</li>
+                    <li>Upload or transmit viruses, malware, or other malicious code</li>
+                    <li>Harass, abuse, or harm other users</li>
+                    <li>Share your account credentials with unauthorized parties</li>
+                </ul>
+
+                <h2>Privacy and Data Protection</h2>
+                <p>Your privacy is important to us. Our collection and use of personal information is governed by our Privacy Policy, which is incorporated into these terms by reference.</p>
+                <p>By using Wizly, you consent to the collection, use, and sharing of your information as described in our Privacy Policy.</p>
+
+                <h2>Third-Party Integrations</h2>
+
+                <h3>Google Services Integration</h3>
+                <p>Wizly integrates with Google services including Google Calendar, Google Classroom, and Google Gemini APIs. Your use of these integrations is subject to:</p>
+                <ul>
+                    <li>Google's Terms of Service and Privacy Policy</li>
+                    <li>The specific permissions you grant to Wizly</li>
+                    <li>Your ability to revoke access at any time</li>
+                </ul>
+
+                <h3>Email Processing</h3>
+                <p>When you forward emails to Wizly for event extraction, you:</p>
+                <ul>
+                    <li>Grant us permission to process the email content for calendar events</li>
+                    <li>Represent that you have the right to share the email content</li>
+                    <li>Understand that we use AI to analyze and extract relevant information</li>
+                </ul>
+
+                <h2>Subscription and Billing</h2>
+
+                <h3>Free Trial</h3>
+                <p>Wizly offers a free trial period. During the trial, you have access to all features without charge. The trial will automatically convert to a paid subscription unless cancelled.</p>
+
+                <h3>Paid Subscriptions</h3>
+                <ul>
+                    <li>Subscription fees are billed in advance on a monthly or annual basis</li>
+                    <li>All fees are non-refundable except as required by law</li>
+                    <li>You may cancel your subscription at any time through your account settings</li>
+                    <li>Upon cancellation, you retain access until the end of your billing period</li>
+                </ul>
+
+                <h3>Price Changes</h3>
+                <p>We reserve the right to modify our pricing with 30 days advance notice. Price changes will not affect your current billing cycle.</p>
+
+                <h2>Intellectual Property Rights</h2>
+
+                <h3>Wizly's Rights</h3>
+                <p>The service and its original content, features, and functionality are owned by Wizly and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
+
+                <h3>Your Content</h3>
+                <p>You retain ownership of any content you submit to Wizly. By using our service, you grant us a limited, non-exclusive license to use your content solely to provide our services to you.</p>
+
+                <h3>Feedback</h3>
+                <p>Any feedback, comments, or suggestions you provide about Wizly may be used by us without restriction or compensation to you.</p>
+
+                <h2>AI and Automated Processing</h2>
+                <p>Wizly uses artificial intelligence to enhance your experience. You understand and agree that:</p>
+                <ul>
+                    <li>AI processing may not be 100% accurate and should be reviewed</li>
+                    <li>You are responsible for verifying AI-extracted information</li>
+                    <li>We continuously improve our AI systems based on usage patterns</li>
+                    <li>Your data helps train our systems to work better for all families</li>
+                </ul>
+
+                <h2>Service Availability</h2>
+                <p>We strive to maintain high service availability, but cannot guarantee uninterrupted access. We may:</p>
+                <ul>
+                    <li>Perform scheduled maintenance with advance notice</li>
+                    <li>Experience temporary outages due to technical issues</li>
+                    <li>Modify or discontinue features with reasonable notice</li>
+                    <li>Suspend accounts for violations of these terms</li>
+                </ul>
+
+                <h2>Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, Wizly shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.</p>
+                <p>Our total liability for any claims arising from or relating to this service shall not exceed the amount you paid to Wizly in the 12 months preceding the claim.</p>
+
+                <h2>Disclaimers</h2>
+                <p>Wizly is provided "as is" and "as available" without warranties of any kind. We disclaim all warranties, whether express or implied, including:</p>
+                <ul>
+                    <li>Merchantability and fitness for a particular purpose</li>
+                    <li>Accuracy or completeness of AI-extracted information</li>
+                    <li>Uninterrupted or error-free operation</li>
+                    <li>Security of data transmission</li>
+                </ul>
+
+                <h2>Indemnification</h2>
+                <p>You agree to defend, indemnify, and hold harmless Wizly and its officers, directors, employees, and agents from any claims, damages, or expenses arising from:</p>
+                <ul>
+                    <li>Your use of the service</li>
+                    <li>Your violation of these terms</li>
+                    <li>Your violation of any rights of another party</li>
+                    <li>Content you submit to the service</li>
+                </ul>
+
+                <h2>Termination</h2>
+
+                <h3>Termination by You</h3>
+                <p>You may terminate your account at any time by contacting customer support or using the account deletion feature in your settings.</p>
+
+                <h3>Termination by Us</h3>
+                <p>We may terminate or suspend your account immediately, without prior notice, for conduct that violates these terms or is harmful to other users, us, or third parties.</p>
+
+                <h3>Effect of Termination</h3>
+                <p>Upon termination, your right to use the service ceases immediately. We will delete your data in accordance with our Privacy Policy and data retention policies.</p>
+
+                <h2>Governing Law and Disputes</h2>
+                <p>These terms are governed by the laws of the State of California, without regard to conflict of law principles. Any disputes will be resolved through binding arbitration in San Francisco, California.</p>
+
+                <h3>Class Action Waiver</h3>
+                <p>You agree to resolve disputes individually and waive any right to participate in class action lawsuits or class-wide arbitrations.</p>
+
+                <h2>Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. We will:</p>
+                <ul>
+                    <li>Provide 30 days notice of material changes</li>
+                    <li>Post the updated terms with the new effective date</li>
+                    <li>Notify you via email or platform notification</li>
+                    <li>Allow you to cancel if you disagree with changes</li>
+                </ul>
+
+                <h2>Severability</h2>
+                <p>If any provision of these terms is found to be unenforceable, the remaining provisions will remain in full force and effect, and the unenforceable provision will be replaced with an enforceable provision that most closely reflects our intent.</p>
+
+                <h2>Contact Information</h2>
+                <p>If you have questions about these Terms of Service, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:legal@wizly.com" style="color: #a855f7;">legal@wizly.com</a></li>
+                    <!--<li><strong>Mail:</strong> Wizly Legal Team, 123 Innovation Way, San Francisco, CA 94105</li>
+                    <li><strong>Phone:</strong> +1 (555) 123-4567</li>-->
+                </ul>
+
+                <div class="contact-box">
+                    <h3>Questions About These Terms?</h3>
+                    <p>Our legal team is available to clarify any questions. Contact us at <a href="mailto:legal@wizly.com">legal@wizly.com</a> for assistance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!--<div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">API Documentation</a>
+                    <a href="#">Integrations</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Community Forum</a>
+                    <a href="#">Status Page</a>
+                </div>-->
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="/aboutus.html">About Us</a>
+                    <!--<a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="/presskit.html">Press Kit</a>-->
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <!--<a href="#">Cookie Policy</a>
+                    <a href="#">GDPR Compliance</a>-->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wizly. All rights reserved. Built with ❤️ for busy families.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

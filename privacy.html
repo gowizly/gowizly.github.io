@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Wizly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }*/
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 80px 0;
+        }
+
+        .policy-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .policy-content h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, #764ba2, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .policy-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .policy-content h3 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .policy-content p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-content ul, .policy-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .last-updated {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .last-updated p {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #c084fc;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            color: #94a3b8;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .policy-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!--<a href="#" class="logo">
+                <div class="logo-img">🦉</div>
+                Wizly
+            </a>-->
+            <a href="#" class="logo">
+                <img src="logo.jfif" alt="Logo" class="logo-img">
+                <span>Wizly</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                  <li><a href="#" style="color: #a855f7;">About</a></li>
+        </ul>
+            <a href="#" class="cta-button">Get Started Free</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Your family's privacy and data security are our highest priorities. Learn how we protect and handle your information.</p>
+        </div>
+    </section>
+
+    <main class="content">
+        <div class="container">
+            <div class="last-updated">
+                <p>Last Updated: August 18, 2025</p>
+            </div>
+
+            <div class="policy-content">
+                <h2>Introduction</h2>
+                <p>At Wizly, we understand that your family's information is deeply personal and sensitive. This Privacy Policy explains how we collect, use, protect, and share your information when you use our family calendar management platform.</p>
+                <p>We are committed to transparency about our data practices and giving you meaningful choices about how your information is used. By using Wizly, you agree to the collection and use of information in accordance with this policy.</p>
+
+                <h2>Information We Collect</h2>
+
+                <h3>Information You Provide to Us</h3>
+                <ul>
+                    <li><strong>Account Information:</strong> Name, email address, password, and profile information</li>
+                    <li><strong>Family Information:</strong> Children's names, schools, grade levels, and activity preferences</li>
+                    <li><strong>Calendar Data:</strong> Events, appointments, assignments, and schedule information you create or import</li>
+                    <li><strong>Communications:</strong> Messages you send to us and email content you choose to forward to our system</li>
+                    <li><strong>Payment Information:</strong> Billing details (processed securely by our payment partners)</li>
+                </ul>
+
+                <h3>Information We Collect Automatically</h3>
+                <ul>
+                    <li><strong>Usage Data:</strong> How you interact with our platform, features used, and time spent</li>
+                    <li><strong>Device Information:</strong> Device type, operating system, browser type, and IP address</li>
+                    <li><strong>Log Data:</strong> Access times, pages viewed, and technical information about your connection</li>
+                </ul>
+
+                <h3>Information from Third Parties</h3>
+                <ul>
+                    <li><strong>Google Services:</strong> Calendar events and classroom information (with your explicit permission)</li>
+                    <li><strong>School Systems:</strong> Assignment data and school events when you connect authorized accounts</li>
+                    <li><strong>Email Integration:</strong> Event details extracted from forwarded school emails</li>
+                </ul>
+
+                <h2>How We Use Your Information</h2>
+
+                <h3>Primary Uses</h3>
+                <ul>
+                    <li><strong>Service Delivery:</strong> Organize your family calendar and provide AI-powered event extraction</li>
+                    <li><strong>Personalization:</strong> Customize your experience and improve our AI recommendations</li>
+                    <li><strong>Communication:</strong> Send important updates, reminders, and support responses</li>
+                    <li><strong>Technical Support:</strong> Troubleshoot issues and provide customer assistance</li>
+                </ul>
+
+                <h3>AI and Data Processing</h3>
+                <p>We use artificial intelligence, including Google Gemini APIs, to:</p>
+                <ul>
+                    <li>Extract event information from emails and photos you provide</li>
+                    <li>Suggest optimal scheduling and conflict resolution</li>
+                    <li>Identify important deadlines and reminders</li>
+                    <li>Improve our service accuracy over time</li>
+                </ul>
+                <p><strong>Important:</strong> Your personal data is never used to train external AI models. All AI processing is done securely within our approved systems.</p>
+
+                <h2>Information Sharing and Disclosure</h2>
+
+                <h3>We DO NOT sell your personal information to third parties.</h3>
+
+                <h3>We may share your information only in these limited circumstances:</h3>
+                <ul>
+                    <li><strong>With Your Consent:</strong> When you explicitly authorize sharing with specific services</li>
+                    <li><strong>Service Providers:</strong> Trusted partners who help us operate our platform (under strict confidentiality agreements)</li>
+                    <li><strong>Legal Requirements:</strong> When required by law, court order, or to protect rights and safety</li>
+                    <li><strong>Business Transfer:</strong> In the event of a merger or acquisition (with advance notice to users)</li>
+                </ul>
+
+                <h3>Third-Party Integrations</h3>
+                <p>When you connect external services (Google Calendar, Google Classroom), we only access the specific data you authorize. You can revoke these permissions at any time in your account settings.</p>
+
+                <h2>Data Security</h2>
+                <p>We implement industry-standard security measures to protect your information:</p>
+                <ul>
+                    <li><strong>Encryption:</strong> All data is encrypted in transit and at rest using AES-256 encryption</li>
+                    <li><strong>Access Controls:</strong> Strict employee access controls with regular security training</li>
+                    <li><strong>Infrastructure:</strong> Secure cloud hosting with regular security audits</li>
+                    <li><strong>Monitoring:</strong> 24/7 security monitoring and incident response procedures</li>
+                </ul>
+
+                <h2>Your Privacy Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request a copy of your personal information</li>
+                    <li><strong>Correct:</strong> Update or correct inaccurate information</li>
+                    <li><strong>Delete:</strong> Request deletion of your personal information</li>
+                    <li><strong>Export:</strong> Download your data in a portable format</li>
+                    <li><strong>Restrict:</strong> Limit how we process your information</li>
+                    <li><strong>Object:</strong> Opt-out of certain data processing activities</li>
+                </ul>
+
+                <h3>Exercising Your Rights</h3>
+                <p>To exercise any of these rights, contact us at <a href="mailto:privacy@wizly.com" style="color: #a855f7;">privacy@wizly.com</a>. We will respond within 30 days and may request identity verification for security purposes.</p>
+
+                <h2>Children's Privacy</h2>
+                <p>Wizly is designed for use by parents and guardians. We do not knowingly collect personal information directly from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
+                <p>Parents maintain full control over their children's information stored in Wizly and can delete or modify it at any time.</p>
+
+                <h2>Data Retention</h2>
+                <p>We retain your information only as long as necessary to provide our services and fulfill legal obligations:</p>
+                <ul>
+                    <li><strong>Active Accounts:</strong> Data is retained while your account is active</li>
+                    <li><strong>Inactive Accounts:</strong> Data is deleted after 2 years of inactivity</li>
+                    <li><strong>Deleted Accounts:</strong> Most data is deleted within 30 days of account deletion</li>
+                    <li><strong>Legal Requirements:</strong> Some data may be retained longer for legal compliance</li>
+                </ul>
+
+                <h2>International Data Transfers</h2>
+                <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place:</p>
+                <ul>
+                    <li>Data Processing Agreements with all international partners</li>
+                    <li>Compliance with GDPR, CCPA, and other applicable privacy laws</li>
+                    <li>Regular audits of international data handling practices</li>
+                </ul>
+
+                <h2>Cookies and Tracking</h2>
+                <p>We use cookies and similar technologies to improve your experience:</p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for basic platform functionality</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how you use our service</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+                </ul>
+                <p>You can control cookie preferences in your browser settings. Note that disabling certain cookies may limit platform functionality.</p>
+
+                <h2>California Privacy Rights (CCPA)</h2>
+                <p>California residents have additional rights under the California Consumer Privacy Act:</p>
+                <ul>
+                    <li>Right to know what personal information is collected</li>
+                    <li>Right to delete personal information</li>
+                    <li>Right to opt-out of the sale of personal information</li>
+                    <li>Right to non-discrimination for exercising privacy rights</li>
+                </ul>
+                <p><strong>Note:</strong> Wizly does not sell personal information and never has.</p>
+
+                <h2>European Privacy Rights (GDPR)</h2>
+                <p>If you are in the European Economic Area, you have additional rights under GDPR:</p>
+                <ul>
+                    <li>Legal basis for processing (legitimate interest and consent)</li>
+                    <li>Right to data portability</li>
+                    <li>Right to object to processing</li>
+                    <li>Right to lodge a complaint with supervisory authorities</li>
+                </ul>
+
+                <h2>Updates to This Policy</h2>
+                <p>We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements. We will:</p>
+                <ul>
+                    <li>Notify you of significant changes via email or platform notification</li>
+                    <li>Post the updated policy with the new effective date</li>
+                    <li>Provide 30 days notice before material changes take effect</li>
+                    <li>Continue to honor previous commitments unless you agree to changes</li>
+                </ul>
+
+                <h2>Contact Us</h2>
+                <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:privacy@wizly.com" style="color: #a855f7;">privacy@wizly.com</a></li>
+                    <li><strong>Mail:</strong> Wizly Privacy Team, 123 Innovation Way, San Francisco, CA 94105</li>
+                    <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+                </ul>
+
+                <div class="contact-box">
+                    <h3>Questions About Your Privacy?</h3>
+                    <p>Our privacy team is here to help. Contact us at <a href="mailto:privacy@wizly.com">privacy@wizly.com</a> and we'll respond within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!--<div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">API Documentation</a>
+                    <a href="#">Integrations</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Community Forum</a>
+                    <a href="#">Status Page</a>
+                </div>-->
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="/aboutus.html">About Us</a>
+                    <!--<a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="/presskit.html">Press Kit</a>-->
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <!--<a href="#">Cookie Policy</a>
+                    <a href="#">GDPR Compliance</a>-->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wizly. All rights reserved. Built with ❤️ for busy families.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
